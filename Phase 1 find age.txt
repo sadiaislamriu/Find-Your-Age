@@ -1,0 +1,101 @@
+//code is written in JavaScript
+
+
+const d = new Date();
+
+py = d.getFullYear();  //py = present year
+pm = d.getMonth() + 1; //pm = present month  added 1 as getmonth counts from 0
+pd = d.getDate();      //pd = present day
+
+print("Todays Date - " + " YY " + py,  " MM " + pm,  " DD " + pd);
+
+print("Enter your Birth Date - ");
+
+var by = window.prompt("Year");     //by = birth year
+
+var bm = window.prompt("Month");     //bm = birth month
+
+var bd = window.prompt("Day");       //bd = birthday
+
+print(" YY " + by,  " MM " + bm,  " DD " + bd);
+
+
+
+
+//ay = aged year
+//am = aged month
+//ad = aged day
+
+//calculate year
+
+if(py>=by && pm>=bm)    
+{
+    ay = py - by;
+}
+ else if(py>by && pm<bm)
+{
+    ay = (py-1) - by;
+}
+
+
+
+// calculate month
+
+am = 0;
+
+if(bm == pm && bd>pd)        
+{
+    am = 12 - 1;
+}
+
+else if(bm <= pm && bd <= pd)
+{
+    am = pm - bm;
+}
+else if(bm <= pm && bd > pd)
+{
+    am = pm - bm;
+}
+else if(bm > pm)
+{
+    am = (12 - bm) + pm;
+}
+
+
+
+
+//calculate days
+
+if(pd<bd)           
+{
+    if(pm==3)     //to consider the days of the month february
+    {
+        if(py/4!==0)
+        {
+            ad = (28-bd)+pd;
+        }
+        else
+        {
+            ad = (29-bd)+pd;
+        }
+    }
+    else if(pm==2 || pm==4 || pm==6 || pm==8 || pm==9 || pm==11 || pm==1)
+    {
+        ad = (31 - bd) + pd;
+    }
+    else
+    {
+        ad = (30 - bd) + pd;
+    }
+}
+else if(pd>=bd)
+{
+    ad = pd - bd;
+}
+
+
+
+print("Your Age is " + ay +" Years " + am + " Months " + ad + " Days ");
+
+
+ 
